@@ -1,0 +1,16 @@
+<?php
+/** @var \Comunicart\MinicartAddedProduct\Block\AddedProduct $block */
+?>
+<?php if ($block->getProductHasBeenAdded()): ?>
+    <script>
+        require(['jquery'], function($) {
+            var interval = setInterval(function() {
+                var minicart = $('.block-minicart[data-role="dropdownDialog"]');
+                if ($('.minicart-items', minicart).length) {
+                    clearInterval(interval);
+                    minicart.dropdownDialog('open');
+                }
+            }, 200);
+        });
+    </script>
+<?php endif ?>
